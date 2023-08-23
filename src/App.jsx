@@ -30,6 +30,10 @@ const App = () => {
       });
   }, []);
 
+  const handleAddToCart = (itemName) => {
+    console.log(`${itemName} added to cart.`);
+  };
+
   return (
     <>
       <Header />
@@ -38,7 +42,13 @@ const App = () => {
         <Route path="/" element={<Content />}>
           <Route
             index
-            element={<Products products={products} loadingProducts={loadingProducts} />}
+            element={
+              <Products
+                products={products}
+                loadingProducts={loadingProducts}
+                handleAddToCart={handleAddToCart}
+              />
+            }
           />
         </Route>
       </Routes>
