@@ -26,6 +26,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
 }
 
 .logo {
@@ -72,6 +74,7 @@ body {
 
 /* CONTENT */
 .content {
+  display: flex;
   min-height: calc(100vh - 64px - 44px);
 }
 

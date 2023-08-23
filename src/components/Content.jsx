@@ -1,5 +1,11 @@
+import { Outlet } from 'react-router-dom';
+
 const Content = () => {
-  return <div className="content common-pd">CONTENT</div>;
+  return (
+    <main className="content common-pd">
+      <Outlet />
+    </main>
+  );
 };
 
 export default Content;
