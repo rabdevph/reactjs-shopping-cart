@@ -1,3 +1,7 @@
+:root {
+  --dark-gray: #374151;
+}
+
 *,
 *::before,
 *::after {
@@ -8,4 +12,73 @@
 
 body {
   font-family: system-ui;
+}
+
+/* COMMON */
+.common-pd {
+  padding: 16px 64px;
+}
+
+/* HEADER */
+.header {
+  background-color: var(--dark-gray);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+}
+
+.logo-img {
+  height: 32px;
+  width: 32px;
+}
+
+.logo-text {
+  font-size: 1.75rem;
+}
+
+.cart {
+  position: relative;
+}
+
+.cart-icon {
+  height: 28px;
+  width: 28px;
+}
+
+.cart-quantity-wrapper {
+  background-color: #ffffff;
+  border-radius: 50%;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.675rem;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  padding: 4px;
+  z-index: 10;
+  top: 14px;
+  left: 16px;
+}
+
+/* CONTENT */
+.content {
+  min-height: calc(100vh - 64px - 44px);
+}
+
+/* FOOTER */
+.footer {
+  background-color: var(--dark-gray);
+  color: #ffffff;
+  font-size: 0.675rem;
+  text-align: center;
 }
