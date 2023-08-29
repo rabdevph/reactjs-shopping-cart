@@ -10,14 +10,20 @@ const Header = () => {
         <img src={logo} alt="shopping bag" className="logo-img" />
         <p className="logo-text">STORE LOGO</p>
       </div>
-      <Link>
-        <div className="cart">
+      <div className="header-links">
+        <Link to="/" className="header-link">
+          HOME
+        </Link>
+        <Link to="shop" className="header-link">
+          SHOP
+        </Link>
+        <Link className="cart-link">
           <img src={cart} alt="cart" className="cart-icon" />
           <div className="cart-quantity-wrapper">
             <p className="cart-quanitity">0</p>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </header>
   );
 };

@@ -1,15 +1,29 @@
-const ProductCard = (props) => {
-  const { image, title, price, handleAddToCart } = props;
+import { Link } from 'react-router-dom';
+
+import { useProductContext } from '../contexts/ProductContext.jsx';
+
+const ProductCard = ({ productIndex }) => {
+  const { products } = useProductContext();
+  const {
+    node: {
+      title,
+      featuredImage: { url },
+      variants,
+    },
+  } = products[productIndex];
+  const { amount, currencyCode } = variants.edges[0].node.price;
+
   return (
     <div className="product-card">
-      <div className="product-image-wrapper">
-        <img src={image} alt="" className="product-image" />
+      <Link className="product-image-wrapper">
+        <img src={url} alt={title} className="product-image" />
+      </Link>
+      <div className="product-details-wrapper">
+        <p className="product-name">{title}</p>
+        <p className="product-price">
+          {currencyCode} {amount}
+        </p>
       </div>
-      <p className="product-name">{title}</p>
-      <p className="product-price">AED {price}</p>
-      <button className="add-item-button" onClick={() => handleAddToCart(title)}>
-        ADD TO CART
-      </button>
     </div>
   );
 };
