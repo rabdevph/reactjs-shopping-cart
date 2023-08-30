@@ -1,10 +1,9 @@
 import '../assets/loader.css';
 
-const Loader = ({ text }) => {
+const Loader = () => {
   return (
-    <div className="loader">
-      <p className="loader-text">{text}</p>
-      <div className="spinner"></div>
+    <div className="loader-wrapper">
+      <div className="loader"></div>
     </div>
   );
 };

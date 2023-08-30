@@ -1,6 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect } from 'react';
 
-const ProductContext = createContext(null);
+import Loader from '../components/Loader.jsx';
+
+const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
@@ -22,7 +25,17 @@ export const ProductProvider = ({ children }) => {
             products: { edges },
           },
         } = data;
-        setProducts(edges);
+
+        const updatedProducts = edges.map((edge) => {
+          const defaultId = edge.node.id;
+          const productId = defaultId.substring(defaultId.lastIndexOf('/') + 1);
+          return {
+            id: productId,
+            node: edge.node,
+          };
+        });
+
+        setProducts(updatedProducts);
         setLoadingProducts(false);
       })
       .catch((error) => {
@@ -31,14 +44,15 @@ export const ProductProvider = ({ children }) => {
       });
   }, []);
 
+  console.log(products);
+
   return (
     <ProductContext.Provider value={{ products, loadingProducts }}>
-      {children}
+      {loadingProducts ? <Loader /> : children}
     </ProductContext.Provider>
   );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useProductContext = () => {
   return useContext(ProductContext);
 };
