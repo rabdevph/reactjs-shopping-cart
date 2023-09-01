@@ -1,6 +1,6 @@
 import ProductCard from '../components/ProductCard.jsx';
 
-import { useProductContext } from '../contexts/ProductContext.jsx';
+import { useProductContext } from '../contexts/ShopContext.jsx';
 
 const Shop = () => {
   const { products, loadingProducts } = useProductContext();

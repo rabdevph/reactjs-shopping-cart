@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
 
+import { useCartItemContext } from '../contexts/ShopContext.jsx';
+
 import logo from '../assets/logo.png';
 import cart from '../assets/shopping-cart.png';
 
 const Header = () => {
+  const { totalQuantity } = useCartItemContext();
+
   return (
     <header className="header common-pd">
       <div className="logo">
@@ -20,7 +24,7 @@ const Header = () => {
         <Link className="cart-link">
           <img src={cart} alt="cart" className="cart-icon" />
           <div className="cart-quantity-wrapper">
-            <p className="cart-quanitity">0</p>
+            <p className="cart-quanitity">{totalQuantity}</p>
           </div>
         </Link>
       </div>

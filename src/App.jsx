@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-import { ProductProvider } from './contexts/ProductContext.jsx';
+import { ShopProvider } from './contexts/ShopContext.jsx';
 
 import Home from './pages/Home.jsx';
 import Shop from './pages/Shop.jsx';
@@ -12,7 +12,7 @@ import Footer from './components/Footer.jsx';
 
 const App = () => {
   return (
-    <ProductProvider>
+    <ShopProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Content />}>
@@ -22,7 +22,7 @@ const App = () => {
         </Route>
       </Routes>
       <Footer />
-    </ProductProvider>
+    </ShopProvider>
   );
 };
 
