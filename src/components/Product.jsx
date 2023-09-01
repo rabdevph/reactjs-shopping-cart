@@ -68,7 +68,7 @@ const Product = () => {
               onChange={handleQuantityChange}
               className="product-quantity-select"
             >
-              {Array.from({ length: 10 }, (_, index) => (
+              {Array.from({ length: 5 }, (_, index) => (
                 <option key={index + 1} value={index + 1}>
                   {index + 1}
                 </option>

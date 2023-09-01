@@ -96,6 +96,24 @@ const CartItemProvider = ({ children }) => {
     }
   };
 
+  const updateItemQuantity = (itemId, quantity) => {
+    const updatedCart = cartItem.map((cartItem) => {
+      if (cartItem.productId === itemId) {
+        return {
+          ...cartItem,
+          qty: quantity,
+        };
+      }
+      return cartItem;
+    });
+    setCartItem(updatedCart);
+  };
+
+  const removeItem = (itemId) => {
+    const updatedCart = cartItem.filter((cartItem) => cartItem.productId !== itemId);
+    setCartItem(updatedCart);
+  };
+
   const isInCart = (itemId) => {
     return cartItem.some((cartItem) => cartItem.productId === itemId);
   };
@@ -119,7 +137,16 @@ const CartItemProvider = ({ children }) => {
 
   return (
     <CartItemContext.Provider
-      value={{ cartItem, updateCart, isInCart, getQuantity, totalQuantity, totalPrice }}
+      value={{
+        cartItem,
+        updateCart,
+        updateItemQuantity,
+        removeItem,
+        isInCart,
+        getQuantity,
+        totalQuantity,
+        totalPrice,
+      }}
     >
       {children}
     </CartItemContext.Provider>
