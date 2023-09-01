@@ -4,6 +4,7 @@ import { ShopProvider } from './contexts/ShopContext.jsx';
 
 import Home from './pages/Home.jsx';
 import Shop from './pages/Shop.jsx';
+import Cart from './pages/Cart.jsx';
 
 import Product from './components/Product.jsx';
 import Header from './components/Header.jsx';
@@ -19,6 +20,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="shop" element={<Shop />} />
           <Route path="shop/product/:productId" element={<Product />} />
+          <Route path="cart" element={<Cart />} />
         </Route>
       </Routes>
       <Footer />

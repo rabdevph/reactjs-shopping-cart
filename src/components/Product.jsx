@@ -7,7 +7,7 @@ const Product = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const { productId } = useParams();
   const { products } = useProductContext();
-  const { cartItem, updateCart, isInCart, getQuantity } = useCartItemContext();
+  const { updateCart, isInCart, getQuantity } = useCartItemContext();
   const product = products.find((product) => product.id === productId);
 
   if (!product) {

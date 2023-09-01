@@ -21,7 +21,7 @@ const Header = () => {
         <Link to="shop" className="header-link">
           SHOP
         </Link>
-        <Link className="cart-link">
+        <Link to="cart" className="cart-link">
           <img src={cart} alt="cart" className="cart-icon" />
           <div className="cart-quantity-wrapper">
             <p className="cart-quanitity">{totalQuantity}</p>

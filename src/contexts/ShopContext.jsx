@@ -111,9 +111,15 @@ const CartItemProvider = ({ children }) => {
 
   const totalQuantity = cartItem.reduce((total, item) => total + item.qty, 0);
 
+  const totalPrice = cartItem.reduce((total, item) => {
+    const itemQty = item.qty;
+    const itemPrice = parseFloat(item.price);
+    return total + itemQty * itemPrice;
+  }, 0);
+
   return (
     <CartItemContext.Provider
-      value={{ cartItem, updateCart, isInCart, getQuantity, totalQuantity }}
+      value={{ cartItem, updateCart, isInCart, getQuantity, totalQuantity, totalPrice }}
     >
       {children}
     </CartItemContext.Provider>
