@@ -4,8 +4,8 @@ const CartCard = ({ itemId }) => {
   const { products } = useProductContext();
   const { cartItem, updateItemQuantity, removeItem } = useCartItemContext();
 
-  const productInCart = cartItem.find((product) => product.productId === itemId);
   const product = products.find((product) => product.id === itemId);
+  const productInCart = cartItem.find((product) => product.id === itemId);
 
   if (!product) {
     return null;
@@ -13,14 +13,14 @@ const CartCard = ({ itemId }) => {
 
   const {
     node: {
-      featuredImage: { url },
+      featuredImage: { url: imageURL },
       variants,
     },
   } = product;
 
   const { amount, currencyCode } = variants.edges[0].node.price;
 
-  const { productTitle, qty } = productInCart;
+  const { name, quantity } = productInCart;
 
   const productPrice = parseFloat(amount).toFixed(2);
 
@@ -36,11 +36,11 @@ const CartCard = ({ itemId }) => {
     <>
       <div className="cart-card">
         <div className="cart-card-image-wrapper">
-          <img src={url} alt={productTitle} className="cart-card-image" />
+          <img src={imageURL} alt={name} className="cart-card-image" />
         </div>
         <div className="cart-card-details-wrapper">
           <div className="cart-cart-title-price">
-            <p className="cart-card-title">{productTitle}</p>
+            <p className="cart-card-title">{name}</p>
             <p className="cart-card-price">
               {currencyCode} {productPrice}
             </p>
@@ -51,7 +51,7 @@ const CartCard = ({ itemId }) => {
             </button>
             <select
               id="cartQuantityDropdown"
-              value={qty}
+              value={quantity}
               onChange={handleUpdateQuantity}
               className="cart-card-quantity-select"
             >

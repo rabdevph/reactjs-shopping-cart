@@ -1,18 +1,19 @@
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { useProductContext, useCartItemContext } from '../contexts/ShopContext.jsx';
 
 const Product = () => {
-  const [selectedQuantity, setSelectedQuantity] = useState(1);
   const { productId } = useParams();
   const { products } = useProductContext();
   const { updateCart, isInCart, getQuantity } = useCartItemContext();
+
   const product = products.find((product) => product.id === productId);
 
   if (!product) {
     return null;
   }
+
+  console.log(product);
 
   const {
     id,
@@ -28,15 +29,13 @@ const Product = () => {
 
   const price = parseFloat(amount).toFixed(2);
 
-  const item = {
-    productId: id,
-    productTitle: title,
-    qty: selectedQuantity,
-    price: amount,
-  };
+  const itemQuantity = getQuantity(id);
 
-  const handleQuantityChange = (event) => {
-    setSelectedQuantity(parseInt(event.target.value));
+  const item = {
+    id: id,
+    name: title,
+    quantity: 1,
+    price: amount,
   };
 
   const handleUpdateCart = () => {
@@ -46,9 +45,7 @@ const Product = () => {
   return (
     <div className="product">
       <div className="product-image-wrapper">
-        {isInCart(productId) ? (
-          <div className="product-in-cart">{getQuantity(productId)} IN CART</div>
-        ) : null}
+        {isInCart(id) ? <div className="product-in-cart">{getQuantity(id)} IN CART</div> : null}
         <img src={url} alt={title} className="product-image" />
       </div>
       <div className="product-details-wrapper">
@@ -58,26 +55,13 @@ const Product = () => {
         </p>
         <p className="product-description">{description}</p>
         <div className="product-cart-control">
-          <div className="product-quantity-wrapper">
-            <label htmlFor="quantityDropdown" className="product-quantity-label">
-              QUANTITY:
-            </label>
-            <select
-              id="quantityDropdown"
-              value={selectedQuantity}
-              onChange={handleQuantityChange}
-              className="product-quantity-select"
-            >
-              {Array.from({ length: 5 }, (_, index) => (
-                <option key={index + 1} value={index + 1}>
-                  {index + 1}
-                </option>
-              ))}
-            </select>
-          </div>
-          <button className="product-add-to-cart" onClick={handleUpdateCart}>
-            ADD TO CART
-          </button>
+          {itemQuantity >= 5 ? (
+            <div>Reached the maximum quantity of one item in the cart (5).</div>
+          ) : (
+            <button className="product-add-to-cart" onClick={handleUpdateCart}>
+              ADD TO CART
+            </button>
+          )}
         </div>
       </div>
     </div>

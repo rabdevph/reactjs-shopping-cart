@@ -35,7 +35,7 @@ const ProductProvider = ({ children }) => {
           const defaultId = edge.node.id;
           const productId = defaultId.substring(defaultId.lastIndexOf('/') + 1);
           return {
-            id: productId,
+            id: productId, // add id to each product
             node: edge.node,
           };
         });
@@ -69,16 +69,16 @@ const CartItemProvider = ({ children }) => {
   const updateCart = (item, itemId) => {
     if (cartItem.length !== 0) {
       // cart item is not empty
-      const itemInCart = cartItem.some((cartItem) => cartItem.productId === itemId);
+      const itemInCart = cartItem.some((cartItem) => cartItem.id === itemId);
 
       if (itemInCart) {
         // item already in cart
         const updatedCart = cartItem.map((cartItem) => {
-          if (cartItem.productId === itemId) {
+          if (cartItem.id === itemId) {
             // item in cart id matches the product selected id
             return {
               ...cartItem,
-              qty: cartItem.qty + item.qty,
+              quantity: cartItem.quantity + 1,
             };
           }
           return cartItem;
@@ -98,10 +98,10 @@ const CartItemProvider = ({ children }) => {
 
   const updateItemQuantity = (itemId, quantity) => {
     const updatedCart = cartItem.map((cartItem) => {
-      if (cartItem.productId === itemId) {
+      if (cartItem.id === itemId) {
         return {
           ...cartItem,
-          qty: quantity,
+          quantity: quantity,
         };
       }
       return cartItem;
@@ -110,27 +110,27 @@ const CartItemProvider = ({ children }) => {
   };
 
   const removeItem = (itemId) => {
-    const updatedCart = cartItem.filter((cartItem) => cartItem.productId !== itemId);
+    const updatedCart = cartItem.filter((cartItem) => cartItem.id !== itemId);
     setCartItem(updatedCart);
   };
 
   const isInCart = (itemId) => {
-    return cartItem.some((cartItem) => cartItem.productId === itemId);
+    return cartItem.some((cartItem) => cartItem.id === itemId);
   };
 
   const getQuantity = (itemId) => {
-    const foundProduct = cartItem.find((cartItem) => cartItem.productId === itemId);
+    const foundProduct = cartItem.find((cartItem) => cartItem.id === itemId);
 
     if (foundProduct) {
-      const qty = foundProduct.qty;
+      const qty = foundProduct.quantity;
       return qty;
     }
   };
 
-  const totalQuantity = cartItem.reduce((total, item) => total + item.qty, 0);
+  const totalQuantity = cartItem.reduce((total, item) => total + item.quantity, 0);
 
   const totalPrice = cartItem.reduce((total, item) => {
-    const itemQty = item.qty;
+    const itemQty = item.quantity;
     const itemPrice = parseFloat(item.price);
     return total + itemQty * itemPrice;
   }, 0);

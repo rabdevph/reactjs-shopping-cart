@@ -26,10 +26,8 @@ const ProductCard = ({ productId }) => {
 
   return (
     <div className="product-card">
-      {isInCart(productId) ? (
-        <div className="product-card-in-cart">{getQuantity(productId)} IN CART</div>
-      ) : null}
-      <Link to={`/shop/product/${productId}`} className="product-card-image-wrapper">
+      {isInCart(id) ? <div className="product-card-in-cart">{getQuantity(id)} IN CART</div> : null}
+      <Link to={`/shop/product/${id}`} className="product-card-image-wrapper">
         <img src={url} alt={title} className="product-card-image" />
       </Link>
       <div className="product-card-details-wrapper">
