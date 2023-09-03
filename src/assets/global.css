@@ -1,5 +1,19 @@
+@font-face {
+  font-family: 'OpenSans';
+  src: url('./OpenSans-VariableFont_wdth,wght.ttf');
+  font-weight: 100 900;
+}
+
 :root {
   --dark-gray: #374151;
+
+  --clr-white: #ffffff;
+  --clr-neutral: #404040;
+  --clr-gray: #f3f4f6;
+
+  --fc-white: #ffffff;
+  --fc-neutral: #404040;
+  --fc-gray: #1f2937;
 }
 
 *,
@@ -11,7 +25,7 @@
 }
 
 body {
-  font-family: system-ui;
+  font-family: 'OpenSans', sans-serif;
 }
 
 /* COMMON */
@@ -21,62 +35,68 @@ body {
 
 /* HEADER */
 .header {
-  background-color: var(--dark-gray);
-  color: #ffffff;
+  background-color: var(--clr-neutral);
+  color: var(--fc-white);
+  display: flex;
+}
+
+.header-logo-wrapper {
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
 
-.logo {
+.header-logo-text-large {
+  font-size: 1.5rem;
+}
+
+.header-logo-text {
+  font-size: 1.25rem;
+}
+
+.header-links-wrapper {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-weight: bold;
-}
-
-.logo-img {
-  height: 32px;
-  width: 32px;
-}
-
-.logo-text {
-  font-size: 1.75rem;
-}
-
-.header-links {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 12px;
   font-size: 0.75rem;
 }
 
 .header-link {
-  color: #ffffff;
-  text-decoration: none;
+  color: var(--fc-white);
   outline: none;
+  padding: 4px 0;
+  text-decoration: none;
 }
 
-.cart-link {
+.header-link:active {
+  font-size: 0.675rem;
+}
+
+.header-cart-link-wrapper {
+  flex: 1;
+  display: flex;
+}
+
+.header-cart-link {
   display: flex;
   align-items: center;
   gap: 4px;
-  text-decoration: none;
+  margin-left: auto;
   outline: none;
+  text-decoration: none;
 }
 
-.cart-icon {
-  height: 16px;
-  width: 16px;
+.header-cart-icon {
+  height: 20px;
+  width: 20px;
 }
 
-.cart-quantity-wrapper {
-  background-color: #ffffff;
+.header-cart-quantity-wrapper {
+  background-color: var(--clr-white);
   border-radius: 50%;
-  color: #000000;
+  color: var(--fc-neutral);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,8 +110,8 @@ body {
 .content {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  min-height: calc(100vh - 64px - 44px);
+  /* viewport heigt - header - footer */
+  min-height: calc(100vh - 65px - 47px);
   padding-top: 32px;
   padding-bottom: 32px;
 }
