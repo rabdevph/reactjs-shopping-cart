@@ -37,8 +37,3 @@ const Header = () => {
 };
 
 export default Header;
-
-{
-  // logo attribution
-  /* <a href="https://www.flaticon.com/free-icons/shopping-bag" title="shopping bag icons">Shopping bag icons created by iconixar - Flaticon</a> */
-}
