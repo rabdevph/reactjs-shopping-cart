@@ -4,16 +4,21 @@
   font-weight: 100 900;
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url('./Inter-VariableFont_slnt,wght.ttf');
+  font-weight: 100 900;
+}
+
 :root {
   --dark-gray: #374151;
 
+  --clr-blue: #2563eb;
   --clr-white: #ffffff;
   --clr-neutral: #404040;
+  --clr-light-gray: #f3f3f3;
   --clr-gray: #f3f4f6;
-
-  --fc-white: #ffffff;
-  --fc-neutral: #404040;
-  --fc-gray: #1f2937;
+  --clr-black: #000000;
 }
 
 *,
@@ -36,8 +41,9 @@ body {
 /* HEADER */
 .header {
   background-color: var(--clr-white);
-  color: var(--fc-neutral);
+  color: var(--clr-neutral);
   display: flex;
+  padding: 2rem 6rem;
 }
 
 .header-logo-wrapper {
@@ -96,7 +102,7 @@ body {
 .header-cart-quantity-wrapper {
   background-color: var(--clr-neutral);
   border-radius: 50%;
-  color: var(--fc-white);
+  color: var(--clr-white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,12 +114,75 @@ body {
 
 /* CONTENT */
 .content {
+  background-color: var(--clr-light-gray);
   display: flex;
   justify-content: center;
-  /* viewport heigt - header - footer */
+  /* viewport height - header - footer */
   min-height: calc(100vh - 65px - 47px);
-  padding-top: 32px;
-  padding-bottom: 32px;
+}
+
+/* HOME */
+.home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.home-intro-wrapper {
+  background-image: url('./background-home.jpg');
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-white);
+  /* viewport height - header*/
+  height: calc(100vh - 97px);
+  width: 100%;
+  padding: 0 6rem;
+  position: relative;
+}
+
+.home-intro-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  /* opacity: 1; */
+}
+
+.home-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  /* width: 640px; */
+  text-align: center;
+}
+
+.home-intro-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.75rem;
+  font-weight: 900;
+}
+
+.home-shop-link {
+  /* background-color: var(--clr-blue); */
+  border: 1px solid var(--clr-white);
+  border-radius: 4px;
+  color: var(--clr-white);
+  /* font-weight: 700; */
+  padding: 12px 30px;
+  text-decoration: none;
+  width: max-content;
+}
+
+.home-shop-link:hover {
+  box-shadow: 0 0 1px 1px var(--clr-white);
 }
 
 /* SHOP */

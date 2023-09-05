@@ -8,7 +8,7 @@ const Header = () => {
   const { totalQuantity } = useCartItemContext();
 
   return (
-    <header className="header common-pd">
+    <header className="header">
       <div className="header-logo-wrapper">
         <p className="header-logo-text">
           <span className="header-logo-text-large">A</span>DD
