@@ -13,7 +13,7 @@ const CartEmpty = () => {
         <p className="cart-empty-subtext">Please add something to your cart.</p>
       </div>
       <Link to="../shop" className="cart-empty-shop">
-        RETURN TO SHOP
+        Shop Now
       </Link>
     </div>
   );

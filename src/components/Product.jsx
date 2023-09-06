@@ -56,7 +56,9 @@ const Product = () => {
         <p className="product-description">{description}</p>
         <div className="product-cart-control">
           {itemQuantity >= 5 ? (
-            <div>Reached the maximum quantity of one item in the cart (5).</div>
+            <div className="product-cart-limit">
+              Reached the maximum quantity of one item in the cart (5).
+            </div>
           ) : (
             <button className="product-add-to-cart" onClick={handleUpdateCart}>
               ADD TO CART
