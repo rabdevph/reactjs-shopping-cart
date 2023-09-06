@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { useCartItemContext } from '../contexts/ShopContext.jsx';
 
-import cart from '../assets/cart.svg';
+import cart from '../assets/shopping-cart.svg';
 
 const Header = () => {
   const { totalQuantity } = useCartItemContext();
