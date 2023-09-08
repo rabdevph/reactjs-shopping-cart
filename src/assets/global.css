@@ -248,6 +248,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 36px;
+  max-width: 1080px;
   padding: 0 6rem 4rem 6rem;
 }
 

@@ -13,8 +13,6 @@ const Product = () => {
     return null;
   }
 
-  console.log(product);
-
   const {
     id,
     node: {
