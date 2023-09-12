@@ -8,27 +8,35 @@ const Header = () => {
   const { totalQuantity } = useCartItemContext();
 
   return (
-    <header className="header">
-      <div className="header-logo-wrapper">
-        <p className="header-logo-text">
-          <span className="header-logo-text-large">A</span>DD
-          <span className="header-logo-text-large">T</span>O
-          <span className="header-logo-text-large">C</span>ART
+    <header className="header | flex bg-black px-24 text-white">
+      <div className="header-logo | flex-1 flex items-center font-rubik font-black py-8">
+        <p className="header-logo-text | text-2xl">
+          <span className="text-3xl">A</span>DD
+          <span className="text-3xl">T</span>O<span className="text-3xl">C</span>ART
         </p>
       </div>
-      <div className="header-links-wrapper">
-        <Link to="/" className="header-link">
+      <div className="header-links | flex-1 flex items-center justify-center text-sm font-bold">
+        <div className="h-full w-px bg-neutral-900"></div>
+        <Link
+          to="/"
+          className="header-link | flex items-center justify-center h-full w-16 outline-none hover:bg-neutral-900 active:text-xs"
+        >
           HOME
         </Link>
-        <Link to="shop" className="header-link">
+        <div className="h-full w-px bg-neutral-900"></div>
+        <Link
+          to="shop"
+          className="header-link | flex items-center justify-center h-full w-16 outline-none hover:bg-neutral-900 active:text-xs"
+        >
           SHOP
         </Link>
+        <div className="h-full w-px bg-neutral-900"></div>
       </div>
-      <div className="header-cart-link-wrapper">
-        <Link to="cart" className="header-cart-link">
-          <img src={cart} alt="cart" className="header-cart-icon" />
-          <div className="header-cart-quantity-wrapper">
-            <p className="header-cart-quanitity">{totalQuantity}</p>
+      <div className="header-cart | flex-1 flex">
+        <Link to="cart" className="header-cart-link | flex items-center gap-1 ml-auto outline-none">
+          <img src={cart} alt="cart" className="header-cart-icon | h-5 w-5" />
+          <div className="header-cart-quantity-wrapper | flex items-center justify-center bg-white rounded-full h-6 w-6 p-1 text-2xs text-black">
+            <p>{totalQuantity}</p>
           </div>
         </Link>
       </div>

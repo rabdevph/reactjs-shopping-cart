@@ -8,6 +8,9 @@ export default {
         inter: 'Inter',
         rubik: 'Rubik',
       },
+      fontSize: {
+        '2xs': '0.625rem',
+      },
     },
   },
   plugins: [],
