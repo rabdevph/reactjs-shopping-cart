@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'OpenSans';
-  src: url('./OpenSans-VariableFont_wdth,wght.ttf');
+  src: url('./assets/fonts/OpenSans-VariableFont_wdth,wght.ttf');
   font-weight: 100 900;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('./Inter-VariableFont_slnt,wght.ttf');
+  src: url('./assets/fonts/Inter-VariableFont_slnt,wght.ttf');
   font-weight: 100 900;
 }
 
 @font-face {
   font-family: 'Rubik';
-  src: url('./Rubik-VariableFont_wght.ttf');
+  src: url('./assets/fonts/Rubik-VariableFont_wght.ttf');
   font-weight: 100 900;
 }
 
@@ -137,7 +137,7 @@ body {
 }
 
 .home-intro-wrapper {
-  background-image: url('./background-home.jpg');
+  background-image: url('./images/background-home.jpg');
   background-position: center center;
   background-size: cover;
   display: flex;

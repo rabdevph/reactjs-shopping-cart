@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-import arrow from '../assets/arrow.svg';
+import arrow from '../assets/images/arrow.svg';
 
 const FooterNewsletterSocmed = () => {
   const inputRef = useRef(null);
