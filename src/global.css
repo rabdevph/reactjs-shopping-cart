@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'OpenSans';
   src: url('./assets/fonts/OpenSans-VariableFont_wdth,wght.ttf');
@@ -137,7 +141,7 @@ body {
 }
 
 .home-intro-wrapper {
-  background-image: url('./images/background-home.jpg');
+  background-image: url('./assets/images/background-home.jpg');
   background-position: center center;
   background-size: cover;
   display: flex;
