@@ -48,11 +48,8 @@ const Header = () => {
   // horizontal line class
   const horizontalLineClass = 'bg-neutral-200 h-px w-full | md:h-full md:w-px md:bg-neutral-900';
 
-  console.log(`isMobile: ${isMobile}`);
-  console.log('re-render');
-
   return (
-    <header className="flex items-center bg-neutral-950 gap-2 h-16 text-white text-xs px-4 relative md:justify-between md:gap-0 md:px-8 lg:px-16">
+    <header className="flex items-center gap-2 font-opensans h-16 text-white text-xs px-4 sticky top-0 z-40 bg-neutral-950 md:justify-between md:gap-0 md:px-8 | lg:px-16">
       {/* HAMBURGER */}
       <button
         id="toggle-menu"

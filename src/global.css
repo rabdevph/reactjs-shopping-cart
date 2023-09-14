@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'OpenSans';
+  font-family: 'Open_Sans';
   src: url('./assets/fonts/OpenSans-VariableFont_wdth,wght.ttf');
   font-weight: 100 900;
 }
@@ -50,10 +50,7 @@ body {
 
 /* CONTENT */
 .content {
-  display: flex;
-  justify-content: center;
-  /* viewport height - header - footer */
-  min-height: calc(100vh - 65px - 47px);
+  min-height: calc(100svh - 64px);
 }
 
 /* HOME */
@@ -71,8 +68,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--clr-white);
-  /* viewport height - header*/
-  height: calc(100vh - 102px);
+  height: 100%;
   width: 100%;
   padding: 0 6rem;
   position: relative;
@@ -468,131 +464,4 @@ body {
   outline: none;
   text-decoration: none;
   width: max-content;
-}
-
-/* FOOTER */
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  background-color: var(--clr-black);
-  color: #ffffff;
-  padding: 3rem 0;
-}
-
-.footer-main-box {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 6rem;
-}
-
-.footer-newsletter-socmed-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: max-content;
-}
-
-.footer-newsletter {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.footer-newsletter-header {
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-  font-size: 1.75rem;
-}
-
-.footer-newsletter-input-wrapper {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--clr-white);
-  border-radius: 4px;
-  padding: 16px 24px;
-  width: 320px;
-}
-
-.footer-newsletter-email {
-  background-color: transparent;
-  border: none;
-  color: var(--clr-white);
-  font-family: 'OpenSans';
-  font-size: 0.875rem;
-  outline: none;
-  width: 100%;
-}
-
-.footer-newsletter-submit-button {
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  height: 18px;
-  width: 18px;
-}
-
-.footer-socmed {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.footer-socmed-header {
-  color: var(--clr-gray);
-  font-size: 0.875rem;
-}
-
-.footer-socmed-icons {
-  display: flex;
-  gap: 12px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.footer-ul-links {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  font-size: 0.75rem;
-  list-style-type: none;
-}
-
-.footer-links-header {
-  font-weight: 900;
-}
-
-.footer-link {
-  cursor: pointer;
-}
-
-.footer-line-break {
-  background-color: var(--clr-neutral);
-  height: 1px;
-  width: 100%;
-}
-
-.footer-project-details {
-  display: flex;
-  justify-content: space-between;
-  color: var(--clr-neutral);
-  font-size: 0.75rem;
-  padding: 0 6rem;
-  width: 100%;
-}
-
-.footer-attribution a {
-  color: var(--clr-white);
-  font-weight: 900;
-  text-decoration: none;
 }

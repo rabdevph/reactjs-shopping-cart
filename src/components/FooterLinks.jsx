@@ -1,19 +1,22 @@
 const FooterLinks = () => {
+  const listClass = 'footer-ul-links | flex flex-col gap-3 text-xs list-none';
+  const listItemClass = 'footer-link | cursor-pointer';
+
   return (
-    <div className="footer-links">
-      <ul className="footer-ul-links">
-        <li className="footer-links-header">ABOUT</li>
-        <li className="footer-link">About ADDTOCART</li>
-        <li className="footer-link">Disclaimer</li>
-        <li className="footer-link">Privacy Policy</li>
+    <div className="footer-links | hidden | md:flex md:gap-8">
+      <ul className={listClass}>
+        <li className="footer-links-header | font-black">ABOUT</li>
+        <li className={listItemClass}>About ADDTOCART</li>
+        <li className={listItemClass}>Disclaimer</li>
+        <li className={listItemClass}>Privacy Policy</li>
       </ul>
-      <ul className="footer-ul-links">
-        <li className="footer-links-header">CUSTOMER SERVICE</li>
-        <li className="footer-link">Shipping Information</li>
-        <li className="footer-link">Returns Information</li>
-        <li className="footer-link">Order Tracking</li>
-        <li className="footer-link">FAQs</li>
-        <li className="footer-link">Feedback</li>
+      <ul className={listClass}>
+        <li className="footer-links-header | font-black">CUSTOMER SERVICE</li>
+        <li className={listItemClass}>Shipping Information</li>
+        <li className={listItemClass}>Returns Information</li>
+        <li className={listItemClass}>Order Tracking</li>
+        <li className={listItemClass}>FAQs</li>
+        <li className={listItemClass}>Feedback</li>
       </ul>
     </div>
   );

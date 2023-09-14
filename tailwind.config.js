@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        opensans: 'Open Sans',
-        inter: 'Inter',
-        rubik: 'Rubik',
+        opensans: ['Open_Sans', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        rubik: ['Rubik', 'sans-serif'],
       },
       fontSize: {
         '2xs': '0.625rem',
@@ -25,8 +25,8 @@ export default {
       },
       keyframes: {
         'slide-in': {
-          '0%': { transform: 'translateX(-100%)' }, // Start from left
-          '100%': { transform: 'translateX(0)' }, // End at the original position
+          '0%': { transform: 'translateX(-100%)' }, // start from left
+          '100%': { transform: 'translateX(0)' }, // end at the original position
         },
       },
     },
