@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isScrollEnabled, setIsScrollEnabled] = useState(true);
   const { totalQuantity } = useCartItemContext();
 
   useEffect(() => {
@@ -29,12 +30,20 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const newOverflowValue = isScrollEnabled ? 'auto' : 'hidden';
+    document.body.style.overflow = newOverflowValue;
+  }, [isScrollEnabled]);
+
   const handleToggleMenu = () => {
     setIsMobile((prevState) => !prevState);
+    setIsScrollEnabled((prevState) => !prevState);
   };
-  help;
+
   const handleLinkClick = () => {
     setIsMobile(false);
+    setIsScrollEnabled(true);
+    window.scrollTo(0, 0);
   };
 
   // header-links [wrapper] mobile class

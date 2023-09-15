@@ -15,7 +15,7 @@ export default {
         'custom-svh': 'calc(100svh - 64px)',
       },
       minHeight: {
-        cmh: 'calc(100svh - 64px)', // 100svh - header height
+        cmh: 'calc(100dvh - 64px)', // 100svh - header height
       },
       boxShadow: {
         cms: '5px 0 10px rgba(0, 0, 0, 0.2)',
