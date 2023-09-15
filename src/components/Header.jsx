@@ -1,14 +1,12 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { useCartItemContext } from '../contexts/ShopContext.jsx';
-
 import menu from '../assets/images/menu.svg';
 import cart from '../assets/images/shopping-cart.svg';
 import shop from '../assets/images/store.svg';
-import help from '../assets/images/help.svg';
-import info from '../assets/images/info.svg';
 import cartMobile from '../assets/images/shopping-cart-mobile.svg';
-import { useEffect, useState } from 'react';
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -22,17 +20,20 @@ const Header = () => {
       }
     };
     window.addEventListener('resize', handleResize);
-    // call function
+
     handleResize();
-    // cleanup
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   useEffect(() => {
-    const newOverflowValue = isScrollEnabled ? 'auto' : 'hidden';
-    document.body.style.overflow = newOverflowValue;
+    if (!isScrollEnabled) document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
   }, [isScrollEnabled]);
 
   const handleToggleMenu = () => {
@@ -46,9 +47,19 @@ const Header = () => {
     window.scrollTo(0, 0);
   };
 
-  // header-links [wrapper] mobile class
+  const handleWrapperClick = () => {
+    setIsMobile(false);
+    setIsScrollEnabled(true);
+  };
+
+  // wrapper class
+  const wrapperClass = isMobile
+    ? 'flex bg-transparent absolute top-full left-0 z-50  min-h-cmh w-full'
+    : 'hidden';
+
+  // header-links mobile class
   const linksMobileClass = isMobile
-    ? 'flex flex-col justify-between bg-white shadow-cms absolute top-full left-0 z-50 text-black min-h-cmh w-3/4 transform transition-all duration-300 ease-in-out animate-slide-in'
+    ? 'flex flex-col justify-between bg-white shadow-cms text-black min-h-full w-3/4 transform transition-all duration-300 ease-in-out animate-slide-in'
     : 'hidden';
 
   // header-link mobile class
@@ -83,80 +94,68 @@ const Header = () => {
 
       {/* LINKS */}
       <div
-        className={`header-links | ${linksMobileClass} font-normal | md:flex md:items-center md:justify-center md:h-full`}
+        className={`wrapper | ${wrapperClass} | md:flex md:relative md:top-auto md:left-auto md:h-full`}
+        onClick={handleWrapperClick}
       >
-        <div className="md:flex md:items-center md:justify-center md:h-full">
-          {/* WIDE VIEW ONLY */}
-          {isMobile ? null : (
-            <>
-              <div className={horizontalLineClass}></div>
-              <Link
-                to="/"
-                className={`header-link | md:flex md:items-center md:justify-center md:h-full md:w-16 md:outline-none md:hover:bg-neutral-900 md:active:text-sm`}
-              >
-                <p>HOME</p>
-              </Link>
-              <div className={horizontalLineClass}></div>
-            </>
-          )}
-
-          <Link
-            to="shop"
-            className={`header-link | ${linkMobileClass} | md:flex md:items-center md:justify-center md:h-full md:w-16 md:outline-none md:hover:bg-neutral-900 md:active:text-sm`}
-            onClick={handleLinkClick}
-          >
-            {isMobile ? <img src={shop} alt="" className="h-5 w-5" /> : null}
-            <p>SHOP</p>
-          </Link>
-
-          <div className={horizontalLineClass}></div>
-
-          <Link
-            to="cart"
-            className={`header-link | ${linkMobileClass} | md:flex md:items-center md:justify-center md:gap-1 md:h-full md:w-16 md:outline-none md:hover:bg-neutral-900`}
-            onClick={handleLinkClick}
-          >
-            {isMobile ? (
+        <div
+          className={`header-links | ${linksMobileClass} font-normal | md:flex md:items-center md:justify-center md:h-full`}
+        >
+          <div className="md:flex md:items-center md:justify-center md:h-full">
+            {/* HOME LINK - WIDE VIEWPORT ONLY */}
+            {isMobile ? null : (
               <>
-                <img src={cartMobile} alt="" className="h-5 w-5" />
-                <div className="flex items-center gap-1">
-                  <p>CART</p>
-                  <div className="flex items-center justify-center bg-black rounded-full h-6 w-6 p-1 text-2xs text-white">
-                    <p>{totalQuantity}</p>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <>
-                <img src={cart} alt="cart" className="header-cart-icon | h-5 w-5" />
-                <div className="flex items-center justify-center bg-white rounded-full h-6 w-6 p-1 text-2xs text-black">
-                  <p>{totalQuantity}</p>
-                </div>
+                <div className={horizontalLineClass}></div>
+                <Link
+                  to="/"
+                  className={`header-link | md:flex md:items-center md:justify-center md:h-full md:w-16 md:outline-none md:hover:bg-neutral-900 md:active:text-sm`}
+                >
+                  <p>HOME</p>
+                </Link>
+                <div className={horizontalLineClass}></div>
               </>
             )}
-          </Link>
 
-          <div className={horizontalLineClass}></div>
-        </div>
-
-        {/* MOBILE ONLY */}
-        {isMobile ? (
-          <div>
-            <div className={horizontalLineClass}></div>
-
-            <Link to="/" className={`header-link | ${linkMobileClass}`} onClick={handleLinkClick}>
-              {isMobile ? <img src={help} alt="" className="h-5 w-5" /> : null}
-              <p>CUSTOMER SERVICES</p>
+            <Link
+              to="shop"
+              className={`header-link | ${linkMobileClass} | md:flex md:items-center md:justify-center md:h-full md:w-16 md:outline-none md:hover:bg-neutral-900 md:active:text-sm`}
+              onClick={handleLinkClick}
+            >
+              {isMobile ? <img src={shop} alt="" className="h-5 w-5" /> : null}
+              <p>SHOP</p>
             </Link>
 
             <div className={horizontalLineClass}></div>
 
-            <Link to="/" className={`header-link | ${linkMobileClass}`} onClick={handleLinkClick}>
-              {isMobile ? <img src={info} alt="" className="h-5 w-5" /> : null}
-              <p>ABOUT US</p>
+            <Link
+              to="cart"
+              className={`header-link | ${linkMobileClass} | md:flex md:items-center md:justify-center md:gap-1 md:h-full md:w-16 md:outline-none md:hover:bg-neutral-900`}
+              onClick={handleLinkClick}
+            >
+              {isMobile ? (
+                <>
+                  {/* CART & QUANTITY - MOBILE VIEWPORT */}
+                  <img src={cartMobile} alt="" className="h-5 w-5" />
+                  <div className="flex items-center gap-1">
+                    <p>CART</p>
+                    <div className="flex items-center justify-center bg-black rounded-full h-6 w-6 p-1 text-2xs text-white">
+                      <p>{totalQuantity}</p>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* CART & QUANTITY - WIDE VIEWPORT */}
+                  <img src={cart} alt="cart" className="header-cart-icon | h-5 w-5" />
+                  <div className="flex items-center justify-center bg-white rounded-full h-6 w-6 p-1 text-2xs text-black">
+                    <p>{totalQuantity}</p>
+                  </div>
+                </>
+              )}
             </Link>
+
+            <div className={horizontalLineClass}></div>
           </div>
-        ) : null}
+        </div>
       </div>
     </header>
   );

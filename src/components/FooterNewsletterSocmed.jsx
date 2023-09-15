@@ -22,7 +22,7 @@ const FooterNewsletterSocmed = () => {
         <p className="footer-newsletter-header | font-inter font-black text-xl | md:text-2xl">
           Never miss a thing
         </p>
-        <div className="footer-newsletter-input-wrapper | flex border border-solid border-white rounded px-6 py-4 w-80 |  md:items-center  ">
+        <div className="footer-newsletter-input-wrapper | flex border border-solid border-white rounded px-6 py-4 min-w-72 |  md:items-center  ">
           <input
             ref={inputRef}
             id="email"
