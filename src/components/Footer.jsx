@@ -4,7 +4,7 @@ import FooterLinks from './FooterLinks.jsx';
 const Footer = () => {
   return (
     <footer className="footer | bg-black text-white | md:flex md:flex-col md:items-center">
-      <div className="footer-main-box | flex justify-center p-8 | md:justify-between md:w-full md:px-8 | lg:px-16">
+      <div className="footer-main-box | flex flex-col items-center justify-center gap-8 p-8 text-base | md:flex-row md:justify-between md:gap-0 md:w-full md:px-8 | lg:px-16">
         <FooterNewsletterSocmed />
         <FooterLinks />
       </div>
