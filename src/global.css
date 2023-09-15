@@ -113,18 +113,6 @@ body {
   box-shadow: 0 0 1px 1px var(--clr-white);
 }
 
-/* SHOP */
-.shop {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  grid-row-gap: 36px;
-  justify-content: center;
-  background-color: var(--clr-white);
-  width: 100%;
-  padding: 0 6rem 4rem 6rem;
-}
-
 /* PRODUCT CARD */
 .product-card {
   display: flex;

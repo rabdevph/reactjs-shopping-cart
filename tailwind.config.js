@@ -29,6 +29,9 @@ export default {
           '100%': { transform: 'translateX(0)' }, // end at the original position
         },
       },
+      gridTemplateColumns: {
+        shop: 'repeat(auto-fill, minmax(260px, 1fr))', // shop grid
+      },
     },
   },
   plugins: [],

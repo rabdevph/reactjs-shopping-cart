@@ -10,7 +10,7 @@ const Shop = () => {
   }
 
   return (
-    <section className="shop">
+    <section className="shop | grid justify-center grid-cols-shop gap-12 px-4 py-8 | md:px-8 md:py-8 | lg:px-16">
       {products.map((product) => {
         return <ProductCard key={product.node.id} productId={product.id} />;
       })}
