@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartItemContext } from '../contexts/ShopContext.jsx';
+import logo from '../assets/images/logo.png';
 import menu from '../assets/images/menu.svg';
 import cart from '../assets/images/shopping-cart.svg';
 import shop from '../assets/images/store.svg';
@@ -80,16 +81,8 @@ const Header = () => {
       </button>
 
       {/* LOGO */}
-      <Link
-        to="/"
-        className="logo | flex items-center font-rubik font-black"
-        onClick={handleLinkClick}
-      >
-        <p className="logo-text | text-lg | md:text-2xl">
-          <span className="text-xl | md:text-3xl">A</span>DD
-          <span className="text-xl | md:text-3xl">T</span>O
-          <span className="text-xl | md:text-3xl">C</span>ART
-        </p>
+      <Link to="/" onClick={handleLinkClick}>
+        <img src={logo} alt="" className="h-auto w-36 | md:w-48" />
       </Link>
 
       {/* LINKS */}
