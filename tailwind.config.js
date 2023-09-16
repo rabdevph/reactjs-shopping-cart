@@ -30,8 +30,8 @@ export default {
         },
       },
       gridTemplateColumns: {
-        shopmd: 'repeat(auto-fill, minmax(260px, 1fr))', // shop grid
-        shop: 'repeat(auto-fill, minmax(160px, 1fr))', // shop grid
+        shopmd: 'repeat(auto-fill, minmax(260px, 1fr))', // shop grid - md viewport
+        shop: 'repeat(auto-fill, minmax(120px, 1fr))', // shop grid
       },
     },
   },
