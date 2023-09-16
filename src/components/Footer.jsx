@@ -16,22 +16,33 @@ const Footer = () => {
           <p>&copy; 2023 rabdevph. All rights reserved.</p>
           <p className="text-center">This is a sample project for demonstration purposes only.</p>
         </div>
-        <p className="attribution">
-          Photo in banner by{' '}
-          <a
-            href="https://unsplash.com/@huntersrace?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-            className="text-white font-bold no-underline"
-          >
-            Hunters Race
-          </a>{' '}
-          on{' '}
-          <a
-            href="https://unsplash.com/photos/hNoSCxPWYII?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-            className="text-white font-bold no-underline"
-          >
-            Unsplash
-          </a>
-        </p>
+        <div className="attribution | flex flex-col items-center | md:items-end">
+          <p>
+            Photo in banner by{' '}
+            <a
+              href="https://unsplash.com/@huntersrace?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              className="text-white font-bold no-underline"
+            >
+              Hunters Race
+            </a>{' '}
+            on{' '}
+            <a
+              href="https://unsplash.com/photos/hNoSCxPWYII?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              className="text-white font-bold no-underline"
+            >
+              Unsplash
+            </a>
+          </p>
+          <p>
+            Empty cart icon created by{' '}
+            <a
+              href="https://www.flaticon.com/free-icons/empty-cart"
+              className="text-white font-bold no-underline"
+            >
+              kerismaker - Flaticon
+            </a>{' '}
+          </p>
+        </div>
       </div>
     </footer>
   );
