@@ -69,13 +69,13 @@ const Product = () => {
             {stock ? (
               <button
                 id="add-to-cart"
-                className="bg-emerald-500 font-medium text-white w-full py-3 outline-none border-none rounded"
+                className="bg-transparent font-medium w-full py-3 border-solid border-2 border-black text-black outline-none"
                 onClick={handleUpdateCart}
               >
                 ADD TO CART
               </button>
             ) : (
-              <div className="flex items-center justify-center gap-1 bg-red-500 font-medium text-white w-full py-3 rounded">
+              <div className="flex items-center justify-center gap-1 bg-transparent border-solid border-2 border-red-600 font-medium w-full py-3 text-red-600">
                 <img src={warning} alt="" className="h-6 w-auto" />
                 <p>MAXIMUM QUANTITY REACHED</p>
               </div>
