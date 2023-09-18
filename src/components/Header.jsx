@@ -45,7 +45,6 @@ const Header = () => {
   const handleLinkClick = () => {
     setIsMobile(false);
     setIsScrollEnabled(true);
-    window.scrollTo(0, 0);
   };
 
   const handleWrapperClick = () => {
