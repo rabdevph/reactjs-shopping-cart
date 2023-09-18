@@ -17,11 +17,13 @@ export default {
       },
       maxHeight: {
         svh: 'calc(100svh - 64px)',
+        dvh: 'calc(100dvh - 64px)',
       },
       minHeight: {
         cmh: 'calc(100dvh - 64px)', // 100dvh - header height
         csvh: 'calc(100svh - 64px',
         svh: 'calc(100svh - 64px)',
+        dvh: 'calc(100dvh - 64px)',
       },
       boxShadow: {
         cms: '5px 0 10px rgba(0, 0, 0, 0.2)',
@@ -42,6 +44,12 @@ export default {
       },
       backgroundImage: {
         home: "url('./assets/images/background-home.jpg')",
+      },
+      screens: {
+        xs: '320px',
+      },
+      colors: {
+        imgbg: '#f3f3f3',
       },
     },
   },
