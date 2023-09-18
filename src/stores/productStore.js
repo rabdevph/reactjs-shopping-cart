@@ -3,8 +3,10 @@ import { create } from 'zustand';
 const useProductStore = create((set) => ({
   // Initialize products state as an empty array
   products: [],
+
   // Initialize loadingProducts state as true
   loadingProducts: true,
+
   // Define the fetchProducts action
   fetchProducts: async () => {
     try {
@@ -38,7 +40,7 @@ const useProductStore = create((set) => ({
           description: edge.node.description,
           price: edge.node.variants.edges[0].node.price.amount,
           stock: 10, // Default stock for each product
-          imageURL: edge.node.featuredImage.url,
+          imageUrl: edge.node.featuredImage.url,
         };
       });
 
@@ -50,6 +52,26 @@ const useProductStore = create((set) => ({
       // Update loadingProducts state to false in case of an error
       set({ loadingProducts: false });
     }
+  },
+
+  // Define update stock action
+  updateStock: (productId) => {
+    set((state) => {
+      // Create an update cart with decremented stock
+      const updatedProducts = state.products.map((product) => {
+        if (product.id === productId) {
+          // Decrement the stock of the matching product
+          return {
+            ...product,
+            stock: product.stock - 1,
+          };
+        }
+        // Return the product as is, if it's not the product to update
+        return product;
+      });
+      // Return an object with the updated products array to update the state
+      return { products: updatedProducts };
+    });
   },
 }));
 

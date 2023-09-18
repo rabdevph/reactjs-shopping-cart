@@ -7,12 +7,6 @@ import CartEmpty from '../components/CartEmpty.jsx';
 const Cart = () => {
   const { cartItem, totalQuantity, totalPrice } = useCartItemContext();
 
-  // const item = {
-  //   productId: id,
-  //   productTitle: title,
-  //   qty: selectedQuantity,
-  //   price: amount,
-  // };
   const subtotal = totalPrice.toFixed(2);
 
   return (

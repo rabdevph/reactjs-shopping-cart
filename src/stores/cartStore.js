@@ -25,11 +25,11 @@ const useCartStore = create((set) => ({
               quantity: product.quantity + 1,
             };
           }
-          // Return the product as is
+          // Return the product as is, if it's not the product to update
           return product;
         });
 
-        // Return a new state with the updated cart
+        // Return an object with the updated products array to update the state
         return { cart: updatedCart };
       } else {
         // If the product is not in the cart, add it as a new item with quantity 1
