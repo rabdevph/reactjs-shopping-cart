@@ -42,7 +42,7 @@ const Product = () => {
   return (
     <div
       id="product-wrapper"
-      className="flex justify-center p-4 min-h-svh md:p-8 lg:static lg:h-svh lg:w-full lg:p-16 lg:py-8"
+      className="flex justify-center p-4 min-h-svh md:p-8 lg:static lg:h-svh lg:w-full lg:px-16 lg:py-8"
     >
       <div
         id="product"
