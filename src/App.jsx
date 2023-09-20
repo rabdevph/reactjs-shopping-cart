@@ -22,16 +22,18 @@ const App = () => {
 
   return (
     <ShopProvider>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Content />}>
-          <Route index element={<Home />} />
-          <Route path="shop" element={<Shop />} />
-          <Route path="shop/product/:productId" element={<Product />} />
-          <Route path="cart" element={<Cart />} />
-        </Route>
-      </Routes>
-      <Footer />
+      <div className="font-opensans">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Content />}>
+            <Route index element={<Home />} />
+            <Route path="shop" element={<Shop />} />
+            <Route path="shop/product/:productId" element={<Product />} />
+            <Route path="cart" element={<Cart />} />
+          </Route>
+        </Routes>
+        <Footer />
+      </div>
     </ShopProvider>
   );
 };
