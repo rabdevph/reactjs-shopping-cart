@@ -53,7 +53,7 @@ const Product = () => {
           className="flex items-center justify-center bg-imgbg relative lg:h-full lg:w-auto"
         >
           {isInCart(id) ? (
-            <div className="flex items-center justify-center absolute bg-amber-500 text-white bottom-0 w-full lg:h-8 lg:w-20 lg:text-xs lg:absolute lg:top-2 lg:left-2">
+            <div className="flex items-center justify-center absolute bg-amber-500 text-white h-8 w-20 top-2 left-2 lg:text-xs">
               {getQuantity(id)} in cart
             </div>
           ) : null}
