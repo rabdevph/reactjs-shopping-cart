@@ -42,11 +42,11 @@ const Product = () => {
   return (
     <div
       id="product-wrapper"
-      className="flex justify-center p-4 min-h-svh md:p-8 lg:static lg:h-svh lg:w-full lg:p-16"
+      className="flex justify-center p-4 min-h-svh md:p-8 lg:static lg:h-svh lg:w-full lg:p-16 lg:py-8"
     >
       <div
         id="product"
-        className="flex flex-col justify-center gap-2 font-rubik lg:flex-row lg:gap-8 lg:max-h-[398px] lg:max-w-5xl"
+        className="flex flex-col justify-center gap-2 font-rubik lg:flex-row lg:gap-8 lg:max-h-screen lg:max-w-5xl"
       >
         <div
           id="product-image-wrapper"

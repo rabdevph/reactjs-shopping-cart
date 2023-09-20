@@ -4,7 +4,7 @@ import EmptyCart from '../assets/images/empty-cart.png';
 
 const CartEmpty = () => {
   return (
-    <div className="cart-empty | flex flex-col items-center justify-center gap-8 h-custom-svh w-full text-black px-4 py-8 | md:px-8 | lg:px-16">
+    <div className="cart-empty | flex flex-col items-center justify-center gap-8 h-custom-svh w-full text-black px-4 py-8 | md:px-8 | lg:px-16 lg:py-8">
       <div className="cart-empty-image-wrapper | h-60 w-60 | ">
         <img src={EmptyCart} alt="" className="cart-empty-image | h-full w-full object-contain" />
       </div>
