@@ -2,17 +2,17 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useCartItemContext } from '../contexts/ShopContext.jsx';
+import useTotalQuantity from '../hooks/useTotalQuantity';
 import logo from '../assets/images/logo.png';
 import menu from '../assets/images/menu.svg';
-import cart from '../assets/images/shopping-cart.svg';
+import cartLogo from '../assets/images/shopping-cart.svg';
 import shop from '../assets/images/store.svg';
 import cartMobile from '../assets/images/shopping-cart-mobile.svg';
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isScrollEnabled, setIsScrollEnabled] = useState(true);
-  const { totalQuantity } = useCartItemContext();
+  const totalQuantity = useTotalQuantity();
 
   useEffect(() => {
     const handleResize = () => {
@@ -137,7 +137,7 @@ const Header = () => {
               ) : (
                 <>
                   {/* CART & QUANTITY - WIDE VIEWPORT */}
-                  <img src={cart} alt="cart" className="header-cart-icon | h-5 w-5" />
+                  <img src={cartLogo} alt="cart" className="header-cart-icon | h-5 w-5" />
                   <div className="flex items-center justify-center bg-white rounded-full h-6 w-6 p-1 text-2xs text-black">
                     <p>{totalQuantity}</p>
                   </div>

@@ -3,7 +3,8 @@ import useProductStore from '../stores/productStore.js';
 import ProductCard from '../components/ProductCard.jsx';
 
 const Shop = () => {
-  const { products, loadingProducts } = useProductStore();
+  const products = useProductStore((state) => state.products);
+  const loadingProducts = useProductStore((state) => state.loadingProducts);
 
   useEffect(() => {
     window.scrollTo(0, 0);

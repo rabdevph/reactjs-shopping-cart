@@ -1,15 +1,20 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useProductStore from '../stores/productStore.js';
-import { useCartItemContext } from '../contexts/ShopContext.jsx';
-
-import cart from '../assets/images/shopping-cart.svg';
+import useCartStore from '../stores/cartStore.js';
+import useProductQuantity from '../hooks/useProductQuantity';
+import useProductInCart from '../hooks/useProductInCart';
+import cartLogo from '../assets/images/shopping-cart.svg';
 import warning from '../assets/images/warning.svg';
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, updateStock } = useProductStore();
-  const { updateCart, isInCart, getQuantity } = useCartItemContext();
+  const products = useProductStore((state) => state.products);
+  const updateStock = useProductStore((state) => state.updateStock);
+  const updateCart = useCartStore((state) => state.updateCart);
+
+  const isProductInCart = useProductInCart();
+  const productQuantity = useProductQuantity();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,7 +40,7 @@ const Product = () => {
   const handleUpdateCart = () => {
     if (stock !== 0) {
       updateCart(item, productId);
-      updateStock(id);
+      updateStock(productId);
     }
   };
 
@@ -52,9 +57,9 @@ const Product = () => {
           id="product-image-wrapper"
           className="flex items-center justify-center bg-imgbg relative lg:h-full lg:w-auto"
         >
-          {isInCart(id) ? (
+          {isProductInCart(productId) ? (
             <div className="flex items-center justify-center absolute bg-amber-500 text-white h-8 w-20 top-2 left-2 text-xs">
-              {getQuantity(id)} in cart
+              {productQuantity(id)} in cart
             </div>
           ) : null}
           <img
@@ -78,7 +83,7 @@ const Product = () => {
                 className="flex items-center justify-center gap-1 bg-black font-medium w-full py-2 text-white outline-none lg:static"
                 onClick={handleUpdateCart}
               >
-                <img src={cart} alt="" className="h-5 w-auto" />
+                <img src={cartLogo} alt="" className="h-5 w-auto" />
                 <p>ADD TO CART</p>
               </button>
             ) : (

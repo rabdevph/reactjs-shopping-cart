@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
-import { useCartItemContext } from '../contexts/ShopContext.jsx';
+import useCartStore from '../stores/cartStore.js';
+import useTotalQuantity from '../hooks/useTotalQuantity.js';
+import useTotalPrice from '../hooks/useTotalPrice.js';
 
 import CartButtons from '../components/CartButtons.jsx';
 import CartCard from '../components/CartCard.jsx';
 import CartEmpty from '../components/CartEmpty.jsx';
 
 const Cart = () => {
-  const { cartItem, totalQuantity, totalPrice } = useCartItemContext();
+  const cart = useCartStore((state) => state.cart);
+  const totalPrice = useTotalPrice();
+  const totalQuantity = useTotalQuantity();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,7 +20,7 @@ const Cart = () => {
 
   return (
     <>
-      {cartItem.length === 0 ? (
+      {cart.length === 0 ? (
         <CartEmpty />
       ) : (
         <div
@@ -30,8 +34,8 @@ const Cart = () => {
           <CartButtons id="top" />
           <div id="cart-summary" className="flex flex-col gap-8 w-full md:flex-row md:gap-16">
             <div id="cart-items" className="flex gap-4 md:flex-1 flex-col md:gap-8">
-              {cartItem.map((product) => {
-                return <CartCard key={product.id} itemId={product.id} />;
+              {cart.map((product) => {
+                return <CartCard key={product.id} productId={product.id} />;
               })}
             </div>
             <div

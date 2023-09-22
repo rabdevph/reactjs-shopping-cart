@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
 import useProductStore from '../stores/productStore.js';
-import { useCartItemContext } from '../contexts/ShopContext.jsx';
+import useProductInCart from '../hooks/useProductQuantity';
 
 const ProductCard = ({ productId }) => {
-  const { products } = useProductStore();
-  const { isInCart } = useCartItemContext();
+  const products = useProductStore((state) => state.products);
   const product = products.find((product) => product.id === productId);
+  const isProductInCart = useProductInCart();
 
   if (!product) {
     return null;
@@ -18,9 +18,9 @@ const ProductCard = ({ productId }) => {
 
   return (
     <div id="product-card" className="flex flex-col gap-2 text-xs relative md:text-sm">
-      {isInCart(id) ? (
-        <div className="flex items-center justify-center bg-amber-300 text-black text-2xs absolute top-0 w-full md:text-xs">
-          ITEM IN CART
+      {isProductInCart(id) ? (
+        <div className="flex items-center justify-center bg-amber-500 text-white text-2xs absolute top-0 w-full md:text-xs">
+          item in cart
         </div>
       ) : null}
       <Link to={`/shop/product/${id}`}>
