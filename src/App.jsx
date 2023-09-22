@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import useProductStore from './stores/productStore.js';
@@ -7,10 +8,8 @@ import Shop from './pages/Shop.jsx';
 import Cart from './pages/Cart.jsx';
 
 import Product from './components/Product.jsx';
-import Header from './components/Header.jsx';
-import Content from './components/Content.jsx';
-import Footer from './components/Footer.jsx';
-import { useEffect } from 'react';
+import Wrapper from './components/Wrapper.jsx';
+import NotFound from './components/NotFound.jsx';
 
 const App = () => {
   const fetchProducts = useProductStore((state) => state.fetchProducts);
@@ -20,17 +19,16 @@ const App = () => {
   }, [fetchProducts]);
 
   return (
-    <div className="font-opensans">
-      <Header />
+    <div id="app" className="font-opensans">
       <Routes>
-        <Route path="/" element={<Content />}>
+        <Route path="/" element={<Wrapper />}>
           <Route index element={<Home />} />
           <Route path="shop" element={<Shop />} />
           <Route path="shop/product/:productId" element={<Product />} />
           <Route path="cart" element={<Cart />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
     </div>
   );
 };
