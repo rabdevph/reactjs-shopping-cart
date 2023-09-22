@@ -42,6 +42,15 @@ const Footer = () => {
               kerismaker - Flaticon
             </a>{' '}
           </p>
+          <p>
+            Error 404 icons created by{' '}
+            <a
+              href="https://www.flaticon.com/free-icons/error-404"
+              className="text-white font-bold no-underline"
+            >
+              Valueinvestor - Flaticon
+            </a>
+          </p>
         </div>
       </div>
     </footer>
