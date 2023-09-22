@@ -6,7 +6,7 @@ import useProductInCart from '../hooks/useProductQuantity';
 const ProductCard = ({ productId }) => {
   const products = useProductStore((state) => state.products);
   const product = products.find((product) => product.id === productId);
-  const isProductInCart = useProductInCart();
+  const isProductInCart = useProductInCart(productId);
 
   if (!product) {
     return null;
@@ -18,7 +18,7 @@ const ProductCard = ({ productId }) => {
 
   return (
     <div id="product-card" className="flex flex-col gap-2 text-xs relative md:text-sm">
-      {isProductInCart(id) ? (
+      {isProductInCart ? (
         <div className="flex items-center justify-center bg-amber-500 text-white text-2xs absolute top-0 w-full md:text-xs">
           item in cart
         </div>

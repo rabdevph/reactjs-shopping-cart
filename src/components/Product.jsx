@@ -10,11 +10,10 @@ import warning from '../assets/images/warning.svg';
 const Product = () => {
   const { productId } = useParams();
   const products = useProductStore((state) => state.products);
-  const updateStock = useProductStore((state) => state.updateStock);
   const updateCart = useCartStore((state) => state.updateCart);
 
-  const isProductInCart = useProductInCart();
-  const productQuantity = useProductQuantity();
+  const isProductInCart = useProductInCart(productId);
+  const productQuantity = useProductQuantity(productId);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,23 +25,24 @@ const Product = () => {
     return null;
   }
 
-  const { id, name, description, price, stock, imageUrl } = product;
+  const { name, description, price, imageUrl } = product;
 
   const formattedPrice = parseFloat(price).toFixed(2);
 
   const item = {
-    id: id,
+    id: productId,
     name: name,
     quantity: 1,
     price: price,
   };
 
   const handleUpdateCart = () => {
-    if (stock !== 0) {
+    if (productQuantity < 10) {
       updateCart(item, productId);
-      updateStock(productId);
     }
   };
+
+  console.log(productQuantity);
 
   return (
     <div
@@ -57,9 +57,9 @@ const Product = () => {
           id="product-image-wrapper"
           className="flex items-center justify-center bg-imgbg relative lg:h-full lg:w-auto"
         >
-          {isProductInCart(productId) ? (
+          {isProductInCart ? (
             <div className="flex items-center justify-center absolute bg-amber-500 text-white h-8 w-20 top-2 left-2 text-xs">
-              {productQuantity(id)} in cart
+              {productQuantity} in cart
             </div>
           ) : null}
           <img
@@ -77,7 +77,7 @@ const Product = () => {
           <p className="text-xs font-opensans lg:text-sm">{description}</p>
 
           <div className="text-base mt-auto">
-            {stock ? (
+            {productQuantity < 10 ? (
               <button
                 id="add-to-cart"
                 className="flex items-center justify-center gap-1 bg-black font-medium w-full py-2 text-white outline-none lg:static"

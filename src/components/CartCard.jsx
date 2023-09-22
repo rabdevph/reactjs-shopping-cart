@@ -1,5 +1,6 @@
 import useProductStore from '../stores/productStore.js';
 import useCartStore from '../stores/cartStore.js';
+import useProductStock from '../hooks/useProductStock.js';
 
 import remove from '../assets/images/remove.svg';
 
@@ -8,6 +9,7 @@ const CartCard = ({ productId }) => {
   const cart = useCartStore((state) => state.cart);
   const updateProductQuantity = useCartStore((state) => state.updateProductQuantity);
   const removeProduct = useCartStore((state) => state.removeProduct);
+  const getStock = useProductStock(productId);
 
   const product = products.find((product) => product.id === productId);
   const cartProduct = cart.find((product) => product.id === productId);
@@ -29,6 +31,8 @@ const CartCard = ({ productId }) => {
   const handleRemoveItem = () => {
     removeProduct(productId);
   };
+
+  console.log(getStock);
 
   return (
     <>
@@ -54,7 +58,7 @@ const CartCard = ({ productId }) => {
               onChange={handleUpdateQuantity}
               className="h-8 w-10 outline-none"
             >
-              {Array.from({ length: 5 }, (_, index) => (
+              {Array.from({ length: 10 }, (_, index) => (
                 <option key={index + 1} value={index + 1}>
                   {index + 1}
                 </option>
