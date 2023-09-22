@@ -32,8 +32,6 @@ const CartCard = ({ productId }) => {
     removeProduct(productId);
   };
 
-  console.log(getStock);
-
   return (
     <>
       <div id="cart-card" className="flex gap-4 md:gap-8">

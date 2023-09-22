@@ -42,8 +42,6 @@ const Product = () => {
     }
   };
 
-  console.log(productQuantity);
-
   return (
     <div
       id="product-wrapper"
