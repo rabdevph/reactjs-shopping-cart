@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTotalQuantity from '../hooks/useTotalQuantity';
-import logo from '../assets/images/logo.png';
+import brand from '../assets/images/brand.png';
 import menu from '../assets/images/menu.svg';
 import cartLogo from '../assets/images/shopping-cart.svg';
 import shop from '../assets/images/store.svg';
@@ -69,7 +69,7 @@ const Header = () => {
   const horizontalLineClass = 'bg-neutral-200 h-px w-full | md:h-full md:w-px md:bg-neutral-900';
 
   return (
-    <header className="flex items-center gap-2 font-opensans h-16 text-white text-xs px-4 sticky top-0 z-40 bg-neutral-950 md:justify-between md:gap-0 md:px-8 | lg:px-16">
+    <header className="flex items-center gap-2 h-16 font-medium text-white text-xs px-4 sticky top-0 z-40 bg-neutral-950 md:justify-between md:gap-0 md:px-8 | lg:px-16">
       {/* HAMBURGER */}
       <button
         id="toggle-menu"
@@ -81,7 +81,7 @@ const Header = () => {
 
       {/* LOGO */}
       <Link to="/" onClick={handleLinkClick}>
-        <img src={logo} alt="" className="h-auto w-36 | md:w-48" />
+        <img src={brand} alt="" className="h-auto w-24 | md:w-32" />
       </Link>
 
       {/* LINKS */}
@@ -90,7 +90,7 @@ const Header = () => {
         onClick={handleWrapperClick}
       >
         <div
-          className={`header-links | ${linksMobileClass} font-normal | md:flex md:items-center md:justify-center md:h-full`}
+          className={`header-links | ${linksMobileClass} | md:flex md:items-center md:justify-center md:h-full`}
         >
           <div className="md:flex md:items-center md:justify-center md:h-full">
             {/* HOME LINK - WIDE VIEWPORT ONLY */}
@@ -138,7 +138,7 @@ const Header = () => {
                 <>
                   {/* CART & QUANTITY - WIDE VIEWPORT */}
                   <img src={cartLogo} alt="cart" className="header-cart-icon | h-5 w-5" />
-                  <div className="flex items-center justify-center bg-white rounded-full h-6 w-6 p-1 text-2xs text-black">
+                  <div className="flex items-center justify-center bg-white rounded-full h-6 w-6 p-1 font-normal text-xs text-black">
                     <p>{totalQuantity}</p>
                   </div>
                 </>
