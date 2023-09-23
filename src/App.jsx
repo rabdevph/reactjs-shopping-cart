@@ -19,7 +19,7 @@ const App = () => {
   }, [fetchProducts]);
 
   return (
-    <div id="app" className="font-opensans">
+    <div id="app" className="font-sans">
       <Routes>
         <Route path="/" element={<Wrapper />}>
           <Route index element={<Home />} />
