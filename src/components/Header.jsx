@@ -71,13 +71,13 @@ const Header = () => {
   return (
     <header className="flex items-center gap-2 h-16 font-medium text-white text-xs px-4 sticky top-0 z-40 bg-neutral-950 md:justify-between md:gap-0 md:px-8 | lg:px-16">
       {/* HAMBURGER */}
-      <button
+      <div
         id="toggle-menu"
         className="toggle-menu | flex items-center justify-center outline-none | md:hidden"
         onClick={handleToggleMenu}
       >
         <img src={menu} alt="" className="h-6 w-6" />
-      </button>
+      </div>
 
       {/* LOGO */}
       <Link to="/" onClick={handleLinkClick}>
