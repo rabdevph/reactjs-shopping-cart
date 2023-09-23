@@ -4,7 +4,6 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        opensans: ['Open_Sans', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
         rubik: ['Rubik', 'sans-serif'],
       },
