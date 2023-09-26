@@ -1,6 +1,6 @@
 import useProductStore from '../stores/productStore.js';
 import useCartStore from '../stores/cartStore.js';
-import useProductStock from '../hooks/useProductStock.js';
+import useOptimizeImage from '../hooks/useOptimizeImage.js';
 
 import remove from '../assets/images/remove.svg';
 
@@ -9,7 +9,7 @@ const CartCard = ({ productId }) => {
   const cart = useCartStore((state) => state.cart);
   const updateProductQuantity = useCartStore((state) => state.updateProductQuantity);
   const removeProduct = useCartStore((state) => state.removeProduct);
-  const getStock = useProductStock(productId);
+  const imgSrc = useOptimizeImage();
 
   const product = products.find((product) => product.id === productId);
   const cartProduct = cart.find((product) => product.id === productId);
@@ -36,7 +36,7 @@ const CartCard = ({ productId }) => {
     <>
       <div id="cart-card" className="flex gap-4 md:gap-8">
         <div className="h-28 w-28">
-          <img src={imageUrl} alt={name} className="h-full w-full object-cover" />
+          <img src={imgSrc(imageUrl)} alt={name} className="h-full w-full object-cover" />
         </div>
         <div className="flex flex-col flex-1 text text-sm md:text-base">
           <div className="flex font-medium justify-between">
