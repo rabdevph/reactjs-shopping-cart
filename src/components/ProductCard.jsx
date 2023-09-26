@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
-
 import useProductStore from '../stores/productStore.js';
 import useProductInCart from '../hooks/useProductQuantity';
+import useOptimizeImage from '../hooks/useOptimizeImage.js';
 
 const ProductCard = ({ productId }) => {
   const products = useProductStore((state) => state.products);
   const product = products.find((product) => product.id === productId);
   const isProductInCart = useProductInCart(productId);
+  const imgSrc = useOptimizeImage();
 
   if (!product) {
     return null;
@@ -24,7 +25,7 @@ const ProductCard = ({ productId }) => {
         </div>
       ) : null}
       <Link to={`/shop/product/${id}`}>
-        <img src={imageUrl} alt={name} className="h-full w-full object-cover" />
+        <img src={imgSrc(imageUrl)} alt={name} className="h-full w-full object-cover" />
       </Link>
       <div className="flex flex-col gap-0.5">
         <p>{name}</p>

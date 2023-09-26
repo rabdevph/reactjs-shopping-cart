@@ -4,6 +4,7 @@ import useProductStore from '../stores/productStore.js';
 import useCartStore from '../stores/cartStore.js';
 import useProductQuantity from '../hooks/useProductQuantity';
 import useProductInCart from '../hooks/useProductInCart';
+import useOptimizeImage from '../hooks/useOptimizeImage.js';
 import cartLogo from '../assets/images/shopping-cart.svg';
 import warning from '../assets/images/warning.svg';
 
@@ -11,9 +12,9 @@ const Product = () => {
   const { productId } = useParams();
   const products = useProductStore((state) => state.products);
   const updateCart = useCartStore((state) => state.updateCart);
-
   const isProductInCart = useProductInCart(productId);
   const productQuantity = useProductQuantity(productId);
+  const imgSrc = useOptimizeImage();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,7 +63,7 @@ const Product = () => {
           ) : null}
           <img
             id="product-image"
-            src={imageUrl}
+            src={imgSrc(imageUrl, true)}
             alt={name}
             className="object-contain h-full w-auto lg:h-full lg:w-full"
           />
