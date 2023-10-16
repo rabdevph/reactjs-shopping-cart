@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import useProductStore from './stores/productStore.js';
+import useMenProductStore from './stores/menProductStore.js';
 
 import Home from './pages/Home.jsx';
 import Shop from './pages/Shop.jsx';
@@ -13,10 +14,15 @@ import NotFound from './components/NotFound.jsx';
 
 const App = () => {
   const fetchProducts = useProductStore((state) => state.fetchProducts);
+  const fetchProductsMen = useMenProductStore((state) => state.fetchProductsMen);
+  const productsMen = useMenProductStore((state) => state.productsMen);
 
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts]);
+    fetchProductsMen();
+  }, [fetchProducts, fetchProductsMen]);
+
+  console.log(productsMen);
 
   return (
     <div id="app" className="font-sans">
